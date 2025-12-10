@@ -133,9 +133,4 @@ function atualizarResumo() {
 
         tabelaD.appendChild(tr)
     }
-
-    var saldoFinal = salario - total
-    document.getElementById("salarioValor").textContent = salario.toFixed(2)
-    document.getElementById("despesasTotal").textContent = total.toFixed(2)
-    document.getElementById("saldoFinal").textContent = saldoFinal.toFixed(2)
 }
