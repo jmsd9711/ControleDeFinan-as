@@ -69,17 +69,6 @@ function atualizarDespesasTabela() {
     }
 }
 
-function atualizarResumo() {
-    var total = 0
-    for (var i = 0; i < despesas.length; i++) {
-        total += despesas[i].valor
-    }
-    var saldo = salario - total
-    document.getElementById("salarioValor").textContent = salario.toFixed(2)
-    document.getElementById("despesasTotal").textContent = total.toFixed(2)
-    document.getElementById("saldoFinal").textContent = saldo.toFixed(2)
-}
-
 
 function apagarUltimaDespesa() {
     if (despesas.length === 0) {
@@ -113,4 +102,40 @@ function apagarTodasDespesas() {
         
         alert("Todas as despesas foram apagadas com sucesso!")
     }
+}
+
+
+function atualizarResumo() {
+    var tabelaD = document.getElementById("resumoTabela")
+    tabelaD.innerHTML = ""
+
+    var total = 0
+
+    for (var i = 0; i < despesas.length; i++) {
+        var d = despesas[i]
+        total += d.valor
+
+        var saldoAposDespesa = salario - total
+
+        var tr = document.createElement("tr")
+
+        var tdSalario = document.createElement("td")
+        tdSalario.innerText = salario.toFixed(2)
+        tr.appendChild(tdSalario)
+
+        var tdValorDespesa = document.createElement("td")
+        tdValorDespesa.innerText = d.valor.toFixed(2)
+        tr.appendChild(tdValorDespesa)
+
+        var tdSaldo = document.createElement("td")
+        tdSaldo.innerText = saldoAposDespesa.toFixed(2)
+        tr.appendChild(tdSaldo)
+
+        tabelaD.appendChild(tr)
+    }
+
+    var saldoFinal = salario - total
+    document.getElementById("salarioValor").textContent = salario.toFixed(2)
+    document.getElementById("despesasTotal").textContent = total.toFixed(2)
+    document.getElementById("saldoFinal").textContent = saldoFinal.toFixed(2)
 }
