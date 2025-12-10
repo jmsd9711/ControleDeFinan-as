@@ -81,4 +81,36 @@ function atualizarResumo() {
 }
 
 
+function apagarUltimaDespesa() {
+    if (despesas.length === 0) {
+        alert("Não há despesas para apagar.")
+        return
+    }
+    
+    despesas.pop()
+    
+    localStorage.setItem("despesas", JSON.stringify(despesas))
+    
+    atualizarDespesasTabela()
+    atualizarResumo()
+    
+    alert("Última despesa apagada com sucesso!")
+}
 
+function apagarTodasDespesas() {
+    if (despesas.length == 0) {
+        alert("Não há despesas para apagar.")
+        return
+    }
+    
+    if (confirm("Tem certeza que deseja apagar TODAS as despesas?")) {
+        despesas = []
+        
+        localStorage.setItem("despesas", JSON.stringify(despesas))
+        
+        atualizarDespesasTabela()
+        atualizarResumo()
+        
+        alert("Todas as despesas foram apagadas com sucesso!")
+    }
+}

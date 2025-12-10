@@ -20,7 +20,12 @@
                 <input type="text" id="despesaNome" placeholder="Informe o nome da despesa">
             <label for="despesaValor">Valor:</label>
                  <input type="number" id="despesaValor" placeholder="Informe o valor">
-                <button id="despesaBtn" onclick="registrarDespesa()">Registrar</button></div></div>
+                <button id="despesaBtn" onclick="registrarDespesa()">Registrar</button>
+                    <div class="apagarbtn">
+            <button id="apagarDespesaBtn" onclick="apagarUltimaDespesa()">Apagar Última Despesa</button>
+            <button id="apagarTodasBtn" onclick="apagarTodasDespesas()">Apagar Todas as Despesas</button>
+    </div>
+            </div></div>
         <div class="tabelas">
             <table class="tabelaDespesa">
                     <tr>
